@@ -5,32 +5,32 @@ import time
 #initialize pygame
 pygame.init()
 pygame.display.set_caption("Towers of Hanoi")
-screen = pygame.display.set_mode((640, 480))
-clock = pygame.time.Clock()
+screen: object = pygame.display.set_mode((640, 480))
+clock: object = pygame.time.Clock()
 
 # global game variables:
-game_done = False
-framerate = 60
-steps = 0
-minimum_steps = 0
-n_discs = 3
-discs = []
-towers_midx = [120,  320, 520]
-pointing_at = 0
-floating = False
-floater = 0
+game_done: bool = False
+framerate: int = 60
+steps: int = 0
+minimum_steps: int = 0
+n_discs: int = 3
+discs: list = []
+towers_midx: list = [120,  320, 520]
+pointing_at: int = 0
+floating: bool = False
+floater: int = 0
 
 # colors:
-white = (255, 255, 255)
-black = (0, 0, 0)
-red = (255, 0, 0)
-gold = (239, 229, 51)
-blue = (78, 162, 196)
-grey = (170, 170, 170)
-green = (77, 206, 145)
+white: tuple = (255, 255, 255)
+black: tuple = (0, 0, 0)
+red: tuple = (255, 0, 0)
+gold: tuple = (239, 229, 51)
+blue: tuple = (78, 162, 196)
+grey: tuple = (170, 170, 170)
+green: tuple = (77, 206, 145)
 
 
-def blit_text(screen, text, midtop, aa=True, font=None, font_name=None, size=None, color=(255, 0, 0)):
+def blit_text(screen: object, text: str, midtop: tuple, aa: bool=True, font:object=None, font_name: str=None, size: int=None, color: tuple=(255, 0, 0)):
     """
     :param screen: display conditions (pixel dimensions)
     :param text: text to be displayed
@@ -43,10 +43,10 @@ def blit_text(screen, text, midtop, aa=True, font=None, font_name=None, size=Non
     :return:
     """
     if font is None:
-        font = pygame.font.SysFont(font_name, size)
-    font_surface = font.render(text, aa, color)
-    font_rect = font_surface.get_rect()
-    font_rect.midtop = midtop
+        font: object = pygame.font.SysFont(font_name, size)
+    font_surface: object = font.render(text, aa, color)
+    font_rect: object = font_surface.get_rect()
+    font_rect.midtop: tuple = midtop
     screen.blit(font_surface, font_rect)
 
 
